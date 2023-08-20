@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -7,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email',
-                  'password', 'password_1', 'friends_count']
+                  'password', 'password_1']
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, attrs):
